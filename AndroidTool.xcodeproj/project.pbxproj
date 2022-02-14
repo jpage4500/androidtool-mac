@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB6D6E1F27BAC1EB004AF773 /* scrcpyMirror.sh in Resources */ = {isa = PBXBuildFile; fileRef = AB6D6E1E27BAC1EB004AF773 /* scrcpyMirror.sh */; };
 		C83D2E091AEDD7A300CD066D /* scriptsPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83D2E081AEDD7A300CD066D /* scriptsPopoverViewController.swift */; };
 		C84079D31C054BCF002EC6D4 /* DropReceiverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84079D21C054BCF002EC6D4 /* DropReceiverView.swift */; };
 		C84079D51C0559B7002EC6D4 /* StatusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84079D41C0559B7002EC6D4 /* StatusTextField.swift */; };
@@ -102,6 +103,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AB6D6E1E27BAC1EB004AF773 /* scrcpyMirror.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = scrcpyMirror.sh; sourceTree = "<group>"; };
 		C83D2E081AEDD7A300CD066D /* scriptsPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = scriptsPopoverViewController.swift; sourceTree = "<group>"; };
 		C84079D21C054BCF002EC6D4 /* DropReceiverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropReceiverView.swift; sourceTree = "<group>"; };
 		C84079D41C0559B7002EC6D4 /* StatusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTextField.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				C8B9D47C1AE9914200927B96 /* getDetailsForSerial.sh */,
 				C8A8A7B21AF4A0A400E4B5D0 /* getResolutionForSerial.sh */,
 				C8B9D4851AE9C3A100927B96 /* getSerials.sh */,
+				AB6D6E1E27BAC1EB004AF773 /* scrcpyMirror.sh */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -428,7 +431,7 @@
 				TargetAttributes = {
 					C8B5145F1AE85D610071C86A = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = UDGLB23X37;
+						DevelopmentTeam = U4W3KF6S6V;
 						LastSwiftMigration = 1020;
 					};
 					C8B5146F1AE85D610071C86A = {
@@ -483,6 +486,7 @@
 				C8B131991AEB641800BCD4F3 /* installApkOnDevice.sh in Resources */,
 				C8B1318B1AEB14E400BCD4F3 /* postProcessMovieForSerial.sh in Resources */,
 				C8B131971AEB3B5100BCD4F3 /* DevicePickerViewController.xib in Resources */,
+				AB6D6E1F27BAC1EB004AF773 /* scrcpyMirror.sh in Resources */,
 				C8C86BF01C50976D0087858B /* installObbForSerial.sh in Resources */,
 				EABEB6012050FD2500DA2FC1 /* android-sdk in Resources */,
 				EAD3437A222635DB000A6564 /* UserScriptsInception in Resources */,
@@ -689,6 +693,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = U4W3KF6S6V;
 				INFOPLIST_FILE = AndroidTool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -710,6 +715,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = U4W3KF6S6V;
 				INFOPLIST_FILE = AndroidTool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (

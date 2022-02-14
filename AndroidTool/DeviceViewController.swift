@@ -13,6 +13,7 @@ class DeviceViewController: NSViewController, NSPopoverDelegate, UserScriptDeleg
     var device : Device!
     @IBOutlet weak var deviceNameField: NSTextField!
     @IBOutlet  var cameraButton: NSButton!
+    //@IBOutlet  var scrcpyButton: NSButton!
     @IBOutlet weak var deviceImage: NSImageView!
     @IBOutlet weak var progressBar: NSProgressIndicator!
     @IBOutlet weak var videoButton: MovableButton!
@@ -154,8 +155,24 @@ class DeviceViewController: NSViewController, NSPopoverDelegate, UserScriptDeleg
             self.setStatus("Screenshot ready")
         }
     }
-    
-    
+
+    func scrcpyMirror(){
+        setStatus("running scrcpy")
+        let activity = self.cleanActivityName(device.currentActivity)
+
+        let args = [self.device.adbIdentifier!,
+                    getFolderForScreenshots(),
+                    activity
+        ]
+
+        Script(fileName:  "scrcpyMirror").run(arguments: args) { (output) -> Void in
+            self.exitDemoModeIfNeeded()
+            self.stopProgressIndication()
+            self.setStatus("DONE running scrcpy")
+        }
+    }
+
+
     func exitDemoModeIfNeeded(){
         if self.shouldChangeStatusBar() {
             self.setStatus("Changing status bar back to normal")
@@ -164,9 +181,22 @@ class DeviceViewController: NSViewController, NSPopoverDelegate, UserScriptDeleg
             })
         }
     }
-    
+
+    @IBAction func scrcpyClicked(_ sender: NSButton) {
+        // TODO: replace cameraClicked
+    }
+
     @IBAction func cameraClicked(_ sender: NSButton) {
-        takeScreenshot()
+        //takeScreenshot()
+        setStatus("Running scrcpy...")
+        self.startProgressIndication()
+        if device.deviceOS == DeviceOS.android {
+            maybeChangeStatusBar(self.shouldChangeStatusBar(), completion: { () -> Void in
+                self.maybeUseActivityFilename(self.shouldUseActivityInFilename(), completion: { () -> Void in
+                    self.scrcpyMirror()
+                })
+            })
+        }
     }
 
     func userScriptEnded() {
