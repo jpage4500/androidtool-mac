@@ -13,13 +13,18 @@ serial=$2
 screenshotFolder=$3
 activityName=$4
 
-# options:
-# --stay-awake
-# --always-on-top 
-# --encoder ['OMX.qcom.video.encoder.avc', 'c2.android.avc.encoder', 'OMX.google.h264.encoder']
-
 echo "running scrcpy with $serial"
 echo "ADB: $ANDROID_SDK_ROOT/platform-tools"
 export PATH=$ANDROID_SDK_ROOT/platform-tools:$PATH
 
-/opt/homebrew/bin/scrcpy -s $serial --show-touches --stay-awake --encoder 'c2.android.avc.encoder'
+# scrcpy installed via homebrew can end up in different locations
+SCRCPY=/usr/local/bin/scrcpy
+if [ ! -f "$SCRCPY" ]; then
+  SCRCPY=/opt/homebrew/bin/scrcpy
+fi
+
+# options:
+# --stay-awake
+# --always-on-top
+# --encoder ['OMX.qcom.video.encoder.avc', 'c2.android.avc.encoder', 'OMX.google.h264.encoder']
+$SCRCPY -s $serial --show-touches --stay-awake --encoder 'c2.android.avc.encoder'
