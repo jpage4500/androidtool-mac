@@ -31,7 +31,7 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView wantsLayer="YES" id="Hz6-mo-xeY" userLabel="DeviceView" customClass="DropReceiverView" customModule="AndroidTool" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="355" height="85"/>
+            <rect key="frame" x="0.0" y="0.0" width="367" height="85"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xDK-Oy-o9K" userLabel="Device Details">
@@ -62,11 +62,11 @@
                     </subviews>
                 </customView>
                 <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="r4v-IZ-HT1">
-                    <rect key="frame" x="0.0" y="-2" width="355" height="5"/>
+                    <rect key="frame" x="0.0" y="-2" width="367" height="5"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </box>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="h6A-EG-vNe" customClass="StatusTextField" customModule="AndroidTool" customModuleProvider="target">
-                    <rect key="frame" x="106" y="11" width="143" height="16"/>
+                    <rect key="frame" x="112" y="11" width="143" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Starting demo mode..." id="gke-nu-kun">
                         <font key="font" metaFont="system"/>
@@ -111,7 +111,7 @@
                     </connections>
                 </button>
                 <button toolTip="Record video" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v4Z-CU-6yJ" userLabel="Camera Button" customClass="MovableButton" customModule="AndroidTool" customModuleProvider="target">
-                    <rect key="frame" x="263" y="44" width="43" height="32"/>
+                    <rect key="frame" x="252" y="37" width="45" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="recordButtonWhite" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="D4P-As-aix">
                         <behavior key="behavior" lightByContents="YES"/>
@@ -121,8 +121,8 @@
                         <action selector="videoClicked:" target="-2" id="c04-Ms-T7D"/>
                     </connections>
                 </button>
-                <button toolTip="Record video" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tP0-KV-w3H" userLabel="Screenshot Button" customClass="MovableButton" customModule="AndroidTool" customModuleProvider="target">
-                    <rect key="frame" x="210" y="44" width="43" height="32"/>
+                <button toolTip="Take screenshot" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tP0-KV-w3H" userLabel="Screenshot Button" customClass="MovableButton" customModule="AndroidTool" customModuleProvider="target">
+                    <rect key="frame" x="208" y="37" width="45" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="cameraWhite" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="F95-PN-n8q">
                         <behavior key="behavior" lightByContents="YES"/>
@@ -133,7 +133,7 @@
                     </connections>
                 </button>
                 <button toolTip="Additional Actions" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j3W-9F-lp5" userLabel="More Button" customClass="MovableButton" customModule="AndroidTool" customModuleProvider="target">
-                    <rect key="frame" x="312" y="48" width="23" height="23"/>
+                    <rect key="frame" x="296" y="37" width="45" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="moreButtonPlus" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="kW8-ju-SPq">
                         <behavior key="behavior" lightByContents="YES"/>
@@ -147,7 +147,7 @@
             <constraints>
                 <constraint firstItem="h6A-EG-vNe" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="I3v-nc-8U2"/>
             </constraints>
-            <point key="canvasLocation" x="314.5" y="230.5"/>
+            <point key="canvasLocation" x="320.5" y="230.5"/>
         </customView>
         <customView id="YzF-fB-bRp" userLabel="MoreView">
             <rect key="frame" x="0.0" y="0.0" width="173" height="33"/>
@@ -241,11 +241,11 @@
     </objects>
     <resources>
         <image name="NSApplicationIcon" width="32" height="32"/>
-        <image name="cameraWhite" width="101" height="101"/>
+        <image name="cameraWhite" width="50.5" height="50.5"/>
         <image name="dragInvite" width="78" height="78"/>
         <image name="loaderButton" width="88" height="88"/>
         <image name="moreButtonPlus" width="23" height="23"/>
-        <image name="recordButtonWhite" width="43" height="32"/>
+        <image name="recordButtonWhite" width="50.5" height="50.5"/>
         <image name="scrcpy" width="48" height="48"/>
     </resources>
 </document>

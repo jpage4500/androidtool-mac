@@ -99,10 +99,10 @@ class DeviceViewController: NSViewController, NSPopoverDelegate, UserScriptDeleg
             print("IOS screenshot")
             let args = [device.uuid!, getFolderForScreenshots()]
             Script(fileName:  "takeScreenshotOfDeviceWithUUID").run(arguments: args, isUserScript: false, isIOS: true, onCompletion: { (output) -> Void in
-                self.setStatus("Screenshot ready")
+                self.setStatus("")
                 self.stopProgressIndication()
                 NSUserNotification.deliver("Screenshot ready", moreInfo: "", sound: true)
-                self.setStatus("Screenshot ready")
+                //self.setStatus("Screenshot ready")
             })
             
         }
@@ -169,7 +169,7 @@ class DeviceViewController: NSViewController, NSPopoverDelegate, UserScriptDeleg
         Script(fileName:  "scrcpyMirror").run(arguments: args) { (output) -> Void in
             self.exitDemoModeIfNeeded()
             self.stopProgressIndication()
-            self.setStatus("DONE running scrcpy")
+            self.setStatus("")
         }
     }
 
