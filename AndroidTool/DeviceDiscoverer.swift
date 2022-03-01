@@ -93,7 +93,7 @@ class DeviceDiscoverer:NSObject, IOSDeviceDelegate {
     }
 
     func getDetailsForSerial(_ serial:String, complete:@escaping (_ details:[String:String])->Void){
-        print("getDetailsForSerial: \(serial)")
+        //print("getDetailsForSerial: \(serial)")
         let task = Script(fileName:  "getDetailsForSerial")
         task.outputIsVerbose = true
         task.run(arguments: ["\(serial)"], isUserScript: false) { (output) -> Void in

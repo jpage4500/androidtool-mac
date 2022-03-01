@@ -12,8 +12,9 @@ import AVFoundation
 class DeviceViewController: NSViewController, NSPopoverDelegate, UserScriptDelegate, IOSRecorderDelegate, DropDelegate, ApkHandlerDelegate, ZipHandlerDelegate, ObbHandlerDelegate {
     var device : Device!
     @IBOutlet weak var deviceNameField: NSTextField!
+    @IBOutlet weak var deviceSerialField: NSTextField!
     @IBOutlet  var cameraButton: NSButton!
-    //@IBOutlet  var scrcpyButton: NSButton!
+    @IBOutlet  var scrcpyButton: NSButton!
     @IBOutlet weak var deviceImage: NSImageView!
     @IBOutlet weak var progressBar: NSProgressIndicator!
     @IBOutlet weak var videoButton: MovableButton!
@@ -183,11 +184,6 @@ class DeviceViewController: NSViewController, NSPopoverDelegate, UserScriptDeleg
     }
 
     @IBAction func scrcpyClicked(_ sender: NSButton) {
-        // TODO: replace cameraClicked
-    }
-
-    @IBAction func cameraClicked(_ sender: NSButton) {
-        //takeScreenshot()
         setStatus("Running scrcpy...")
         self.startProgressIndication()
         if device.deviceOS == DeviceOS.android {
@@ -197,6 +193,10 @@ class DeviceViewController: NSViewController, NSPopoverDelegate, UserScriptDeleg
                 })
             })
         }
+    }
+
+    @IBAction func cameraClicked(_ sender: NSButton) {
+        takeScreenshot()
     }
 
     func userScriptEnded() {
@@ -242,6 +242,7 @@ class DeviceViewController: NSViewController, NSPopoverDelegate, UserScriptDeleg
         alert.messageText = title
         alert.runModal()
      
+        scrcpyButton.isEnabled = true
         cameraButton.isEnabled = true
         videoButton.isEnabled = true
         isRecording = false
@@ -266,6 +267,7 @@ class DeviceViewController: NSViewController, NSPopoverDelegate, UserScriptDeleg
         self.restingButton = self.videoButton.image // restingbutton is "recordButtonWhite"
         videoButton.image = NSImage(named: "stopButton")
         videoButton.isEnabled = false
+        scrcpyButton.isEnabled = false
         cameraButton.isEnabled = false
         moreButton.isEnabled = false
 
@@ -325,6 +327,7 @@ class DeviceViewController: NSViewController, NSPopoverDelegate, UserScriptDeleg
             print("-----")
             
             self.startProgressIndication()
+            self.scrcpyButton.isEnabled = true
             self.cameraButton.isEnabled = true
             self.moreButton.isEnabled = true
             self.videoButton.image = restingButton
@@ -424,22 +427,27 @@ class DeviceViewController: NSViewController, NSPopoverDelegate, UserScriptDeleg
     
     override func awakeFromNib() {
         if let model = device.model {
+            print("model: " + model)
             deviceNameField.stringValue = model
         }
-        
-        var image: NSImage? = nil
-        if let brand = device.brand {
-            let brandName = brand.lowercased()
-            let imageName = "logo\(brandName)"
-            print("imageName: \(imageName)")
-            image = NSImage(named: imageName)
-        } else {
-            print("imageName: use default, no brand")
+        if let serial = device.serial {
+            deviceSerialField.stringValue = serial
         }
-        if image == nil {
-            image = NSImage(named: "androidlogo")
-        }
-        deviceImage.image = image
+
+        // TODO: removing images to make room
+//        var image: NSImage? = nil
+//        if let brand = device.brand {
+//            let brandName = brand.lowercased()
+//            let imageName = "logo\(brandName)"
+//            print("imageName: \(imageName)")
+//            image = NSImage(named: imageName)
+//        } else {
+//            print("imageName: use default, no brand")
+//        }
+//        if image == nil {
+//            image = NSImage(named: "androidlogo")
+//        }
+//        deviceImage.image = image
         
         if device.isEmulator {
 //            cameraButton.enabled = false
@@ -495,13 +503,13 @@ class DeviceViewController: NSViewController, NSPopoverDelegate, UserScriptDeleg
     
     
     func hideButtons(){
-        fadeViewsOutStaggered([moreButton, cameraButton, videoButton])
+        fadeViewsOutStaggered([moreButton, cameraButton, videoButton, scrcpyButton])
         uninstallButton.alphaValue = 0
     }
     
     
     func showButtons(){
-        fadeViewsInStaggered([moreButton, cameraButton, videoButton])
+        fadeViewsInStaggered([moreButton, cameraButton, videoButton, scrcpyButton])
         uninstallButton.alphaValue = 1
     }
     
